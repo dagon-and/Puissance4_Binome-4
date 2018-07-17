@@ -23,12 +23,12 @@ public class Client extends Lanceur {
             System.out.println("Veuillez entrez l'adresse ip du serveur");
             String ip = scanner.nextLine();
             clientSocket = new Socket(ip, 5000);
-            try {
-                out = new PrintWriter(clientSocket.getOutputStream());
-                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                out = new PrintWriter(clientSocket.getOutputStream());
+//                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
             //flux pour envoyer
             out = new PrintWriter(clientSocket.getOutputStream());
             //flux pour recevoir
@@ -42,7 +42,7 @@ public class Client extends Lanceur {
                 if (msg.equals("Fin"))
                     break;
                 msg = null;
-            attendreMessage();
+                attendreMessage();
             }
             System.out.println("Serveur déconecté");
             out.close();

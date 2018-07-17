@@ -5,12 +5,13 @@ import javafx.scene.shape.Circle;
 
 
 public class Jeton {
-    Circle  circle;
+    Circle circle;
 
     public Jeton(Circle circle) {
         this.circle = circle;
     }
-     public void setColor(Color color){
+
+    public void setColor(Color color) {
         this.circle.setFill(color);
-     }
+    }
 }

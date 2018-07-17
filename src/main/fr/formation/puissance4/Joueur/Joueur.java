@@ -12,6 +12,13 @@ public abstract class Joueur {
         this.board = board;
     }
 
+    public boolean checkJetonPosiotion(int ligne, int colonne) {
+         /*************************
+         * à écrire le code
+         */
+        return false;
+    }
+
     public abstract String envoyer();
 
     public abstract void recevoir(String messageRecu);

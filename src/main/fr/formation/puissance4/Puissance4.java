@@ -22,18 +22,17 @@ public class Puissance4 extends Application {
     private int r;
     private int c;
 
-
     @Override
     public void start(Stage primaryStage) {
 
         final BorderPane root = new BorderPane();
         final GridPane gridpane = new GridPane();
         primaryStage.setTitle("Puissance 4");
-        primaryStage.setResizable(true);
+//        primaryStage.setResizable(true);
 
         final Button addCellButton = new Button("Add Grids");
 
-        Scene scene = new Scene(root, 900, 900, true);
+        Scene scene = new Scene(root, 800, 700, true);
         scene.setFill(Color.BLACK);
         scene.getStylesheets().add("net/glyphsoft/styles.css");
 
@@ -46,7 +45,6 @@ public class Puissance4 extends Application {
             } else {
                 gridpane.getColumnConstraints().add(new ColumnConstraints(100, 100, Double.MAX_VALUE));
             }
-
         }
 
         createGrids(gridpane);
@@ -55,7 +53,6 @@ public class Puissance4 extends Application {
 
         DropShadow effect = new DropShadow();
         effect.setColor(Color.BLUE);
-
 
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -89,12 +86,9 @@ public class Puissance4 extends Application {
                 effect.setColor(Color.BLUE);
                 cell.setEffect(effect);
 
-
                 final Circle diskPreview = new Circle(40);
                 diskPreview.setOpacity(1);
                 diskPreview.setFill(Color.TRANSPARENT);
-
-
 
                 StackPane stack = new StackPane();
 
