@@ -34,7 +34,7 @@ public class Puissance4 extends Application {
 
         Scene scene = new Scene(root, 800, 700, true);
         scene.setFill(Color.BLACK);
-        scene.getStylesheets().add("net/glyphsoft/styles.css");
+ //       scene.getStylesheets().add("net/glyphsoft/styles.css");
 
         gridpane.setTranslateY(20);
         gridpane.setAlignment(Pos.CENTER);

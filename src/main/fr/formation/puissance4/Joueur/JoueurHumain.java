@@ -3,6 +3,8 @@ package fr.formation.puissance4.Joueur;
 import fr.formation.puissance4.Board.Board;
 import javafx.scene.paint.Color;
 
+import java.util.Scanner;
+
 public class JoueurHumain extends Joueur {
     public JoueurHumain(Color color, Board board) {
         super(color, board);
@@ -16,7 +18,8 @@ public class JoueurHumain extends Joueur {
          *  -> utiliser if( checkJetonPosiotion(ligne, colonne) )
          *  -> si les positions sont mauvaises alors redemander encore (utiliser boucle)
          */
-        return "#,#,COLOR";
+
+        return "Fin";
     }
 
     @Override
