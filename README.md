@@ -30,6 +30,16 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+<<<<<<< HEAD
 # Formateur
 - GARDIN Alexis
+=======
+
+# Fonctionnalité
+- IA vs Joueur
+- Joueur vs Joueur
+- IA vs IA
+
+
+>>>>>>> dev
 
