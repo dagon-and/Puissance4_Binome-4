@@ -1,11 +1,20 @@
 # Puissance4_Binome-4
 
 Projet puissance 4 réaliser lors d'une formation
+
+
+
 # Objectif
+
 Création d'un puissance 4 multijoueur avec l'utilisation des sockets
+
+
+
 # Auteur
 - BELOKOGNE Andrei
 - BOUCHAREB FATIMA
+
+
 
 # License
 MIT License
@@ -30,10 +39,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-<<<<<<< HEAD
-# Formateur
-- GARDIN Alexis
-=======
+
 
 # Fonctionnalité
 - IA vs Joueur
@@ -41,5 +47,8 @@ SOFTWARE.
 - IA vs IA
 
 
->>>>>>> dev
+
+# Formateur
+- GARDIN Alexis
+
 
