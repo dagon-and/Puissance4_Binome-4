@@ -5,4 +5,5 @@ Projet puissance 4 réaliser lors d'une formation
 Création d'un puissance 4 multijoueur avec l'utilisation des sockets
 # Auteur
 - BELOKOGNE Andrei
-- Nom prenom
+- BOUCHAREB FATIMA
+
