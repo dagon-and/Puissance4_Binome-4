@@ -14,4 +14,8 @@ public class Jeton {
     public void setColor(Color color) {
         this.circle.setFill(color);
     }
+
+    public Color getColor() {
+        return (Color) circle.getFill();
+    }
 }

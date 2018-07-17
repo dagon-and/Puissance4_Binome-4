@@ -13,10 +13,15 @@ public abstract class Joueur {
     }
 
     public boolean checkJetonPosiotion(int ligne, int colonne) {
-         /*************************
-         * à écrire le code
-         */
-        return false;
+        // vérification si la place est libre : not(expr)
+        if (!board.getJetons()[ligne][colonne].getColor().equals(Color.TRANSPARENT))
+            return false;
+
+        // vérifier si c'est le fond ou s'il y a un jeton en desous : not(expr1 ou expr2) = not(expr1) && not(expr2)
+        if (colonne + 1 != board.getJetons()[ligne].length && !board.getJetons()[ligne][colonne + 1].getColor().equals(Color.TRANSPARENT))
+            return false;
+
+        return true;
     }
 
     public abstract String envoyer();
