@@ -12,18 +12,19 @@ public class JoueurHumain extends Joueur {
 
     public String entrerPosition() {
         Scanner scanner = new Scanner(System.in);
+        String inPosition;
         boolean isBad = true;
-        System.out.println("Veuillez entrer une position:");
+        System.out.println("Veuillez entrer une position (ex., 'ligne,colonne') :");
         do {
-            String[] position = scanner.nextLine().split(",");
-
-            isBad = checkJetonPosiotion(Integer.parseInt(position[0]), Integer.parseInt(position[1]));
-            if (!isBad)
-                isBad = false;
-            else {
-                System.out.println("Veuillez entrer une position correcte !");
+            inPosition = scanner.nextLine();
+            if (!inPosition.matches("^\\d+,\\d+$")) {
+                String[] position = inPosition.split(",");
+                int ligne=Integer.parseInt(position[0]);
+                int colonne=Integer.parseInt(position[1]);
+                if (setJeton(ligne,colonne)){
+                    return inPosition + "," + ((color.equals(Color.RED))? "RED": "YELLOW");
+                }
             }
-
         } while (isBad);
 
 
@@ -52,10 +53,6 @@ public class JoueurHumain extends Joueur {
 
     @Override
     public void recevoir(String messageRecu) {
-        /*************************
-         * à écrire le code pour le msg mal formaté pour terminer ce jeu
-         */
-
         if (!messageRecu.matches("^\\d+,\\d+,(RED|YELLOW)$")) {
             isMsgError = true;
             return;

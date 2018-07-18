@@ -45,7 +45,7 @@ public abstract class Joueur {
 
     public void setJetonAdversaire(int ligne, int colonne, Color adversaireColor) {
         if (checkJetonPosiotion(ligne, colonne)) {
-            board.getJetons()[ligne][colonne].setColor(color);
+            board.getJetons()[ligne][colonne].setColor(adversaireColor);
         } else {
             isMsgError = true;
         }
@@ -60,7 +60,7 @@ public abstract class Joueur {
             count = 0;
             for (int i = 1; ligne + i < board.getJetons().length &&
                     board.getJetons()[ligne + i][colonne].getColor().equals(adversaireColor); i++)
-                if (++count > 2)
+                if ((++count) > 2)
                     return isDefaite = true;
         }
 
