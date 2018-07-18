@@ -13,8 +13,8 @@ public abstract class Joueur {
     public Joueur(Color color, Board board) {
         this.color = color;
         this.board = board;
-        this.isMsgError=isMsgError;
-        this.isDefaite=isDefaite;
+        this.isMsgError=false;
+        this.isDefaite=false;
     }
 
     public boolean checkJetonPosiotion(int ligne, int colonne) {
