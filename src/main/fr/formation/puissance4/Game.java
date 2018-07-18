@@ -30,9 +30,9 @@ public class Game extends Thread {
         System.out.println("Etes vous serveur ou client ?");
         System.out.println("1 - Client   2 - Serveur");
         Scanner scanner = new Scanner(System.in);
-        if (scanner.nextInt() == 1) {
+        if (scanner.nextInt() == 1)
             new Client(new JoueurHumain(Color.YELLOW, new Board(jetons))).start();
-        } else
+        else
             new Serveur(new JoueurHumain(Color.RED, new Board(jetons))).start();
     }
 }
