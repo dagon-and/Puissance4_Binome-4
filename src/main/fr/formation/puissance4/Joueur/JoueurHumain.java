@@ -6,6 +6,8 @@ import javafx.scene.paint.Color;
 import java.util.Scanner;
 
 public class JoueurHumain extends Joueur {
+    private final int NB_ESSAIS = 3;
+
     public JoueurHumain(Color color, Board board) {
         super(color, board);
     }
@@ -13,11 +15,11 @@ public class JoueurHumain extends Joueur {
     public String entrerPosition() {
         Scanner scanner = new Scanner(System.in);
         String inPosition;
-        boolean isBad = true;
+        int i = 0;
         System.out.println("Veuillez entrer une position (ex., 'ligne,colonne') :");
         do {
             inPosition = scanner.nextLine();
-            if (!inPosition.matches("^\\d+,\\d+$")) {
+            if (inPosition.matches("^\\d+,\\d+$")) {
                 String[] position = inPosition.split(",");
                 int ligne=Integer.parseInt(position[0]);
                 int colonne=Integer.parseInt(position[1]);
@@ -25,16 +27,8 @@ public class JoueurHumain extends Joueur {
                     return inPosition + "," + ((color.equals(Color.RED))? "RED": "YELLOW");
                 }
             }
-        } while (isBad);
-
-
-        /*************************
-         * à écrire le code :
-         *  -> verifier le msg de scanner
-         *  -> faire parseInt pour avoir ligne et colonne
-         *  -> utiliser if( checkJetonPosiotion(ligne, colonne) )
-         *  -> si les positions sont mauvaises alors redemander encore (utiliser boucle)
-         */
+            System.out.println("(" + (++i) + ") Veuillez choisir une position correcte :");
+        } while (i < NB_ESSAIS);
 
         return "Fin";
     }

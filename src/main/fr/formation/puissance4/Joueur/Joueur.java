@@ -9,7 +9,6 @@ public abstract class Joueur {
     protected boolean isMsgError;
     protected boolean isDefaite;
 
-
     public Joueur(Color color, Board board) {
         this.color = color;
         this.board = board;

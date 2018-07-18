@@ -65,7 +65,6 @@ public class Puissance4 extends Application {
         }
     }
 
-
     //Create Grids
     private void createGrids(final GridPane gridpane) {
         gridpane.getChildren().clear();

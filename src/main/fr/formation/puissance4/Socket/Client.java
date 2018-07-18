@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-
 public class Client extends Lanceur {
 
     public Client(Joueur joueur) {

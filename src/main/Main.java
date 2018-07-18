@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import java.lang.reflect.Field;
+import java.util.Arrays;
 
 public class Main {
 
@@ -74,6 +75,14 @@ public class Main {
 
         printBoard(jetons);
 
-//        Field[] field :
+        System.out.println();
+
+//        for (Field field : Color.class.getFields())
+//            System.out.println(field.getName());
+
+        Color color = Color.YELLOW;
+        Arrays.stream(Color.class.getFields())
+                .filter(v -> Color.valueOf(v.getName()).equals(color))
+                .forEach(v -> System.out.println("Le coleur est " + v.getName()));
     }
 }
