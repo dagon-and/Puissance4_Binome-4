@@ -15,10 +15,13 @@ public class Board {
     }
 
     public boolean isFullBoard() {
-        for (int ligne = 0; ligne < jetons.length; ligne++)
-            for (int colonne = 0; colonne < jetons[ligne].length; colonne++)
-                if (jetons[ligne][colonne].getColor().equals(Color.TRANSPARENT))
+        for (int line = 0; line < jetons.length; line++) {
+            for (int column = 0; column < jetons[line].length; column++) {
+                if (jetons[line][column].getColor().equals(Color.TRANSPARENT))
                     return false;
+            }
+        }
         return true;
     }
+
 }
