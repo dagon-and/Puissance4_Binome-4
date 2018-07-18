@@ -40,7 +40,8 @@ public class JoueurHumain extends Joueur {
          *  -> utiliser if( checkJetonPosiotion(ligne, colonne) )
          *  -> si les positions sont mauvaises alors redemander encore (utiliser boucle)
          */
-        return "#,#,COLOR";
+
+        return "Fin";
     }
 
     @Override

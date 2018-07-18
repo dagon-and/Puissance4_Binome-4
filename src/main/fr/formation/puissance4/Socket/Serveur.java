@@ -21,14 +21,10 @@ public class Serveur extends Lanceur {
         try {
             serveurSocket = new ServerSocket(5000);
             clientSocket = serveurSocket.accept();
-//            try {
-//                out = new PrintWriter(clientSocket.getOutputStream());
-//                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
+
             out = new PrintWriter(clientSocket.getOutputStream());
             in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
             while (isNotFinish) {
                 Thread.sleep(1000);
                 super.attendreMessage();
