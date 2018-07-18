@@ -6,10 +6,15 @@ import javafx.scene.paint.Color;
 public abstract class Joueur {
     protected Color color;
     protected Board board;
+    protected boolean isMsgError;
+    protected boolean  isDefaite;
+
 
     public Joueur(Color color, Board board) {
         this.color = color;
         this.board = board;
+        this.isMsgError=isMsgError;
+        this.isDefaite=isDefaite;
     }
 
     public boolean checkJetonPosiotion(int ligne, int colonne) {
@@ -29,6 +34,13 @@ public abstract class Joueur {
     }
 
     public boolean isFinish() {
+        // vérification :
+        // - s'il une erreur dans le message reçu
+        // - si l'adversaire a gagné
+        // - si le board est complètement rempli
+        if(isMsgError || isDefaite || board.isFullBoard()) {
+            return true;
+        }
         return false;
     }
 

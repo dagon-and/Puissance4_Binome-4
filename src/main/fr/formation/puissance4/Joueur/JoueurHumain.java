@@ -27,12 +27,6 @@ public class JoueurHumain extends Joueur {
         } while (isBad);
 
 
-
-
-
-
-
-
         /*************************
          * à écrire le code :
          *  -> verifier le msg de scanner
@@ -46,13 +40,14 @@ public class JoueurHumain extends Joueur {
 
     @Override
     public String envoyer() {
-        /*************************
-         * à modifier le retour en utilisant entrerPosition()
-         */
-        if (Color.RED.equals(color))
-            return "4,4,RED";
-        else
-            return "1,4,YELLOW";
+        // Messages :
+        // - "Fin" termine le jeu
+        // - "{ligne},{colonne},{color}" envoie le choix à adversaire, ex., "4,4,RED" ou "1,4,YELLOW"
+
+        if (isFinish()) {
+            return "Fin";
+        }
+        return entrerPosition();
     }
 
     @Override
