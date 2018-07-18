@@ -3,12 +3,36 @@ package fr.formation.puissance4.Joueur;
 import fr.formation.puissance4.Board.Board;
 import javafx.scene.paint.Color;
 
+import java.util.Scanner;
+
 public class JoueurHumain extends Joueur {
     public JoueurHumain(Color color, Board board) {
         super(color, board);
     }
 
     public String entrerPosition() {
+        Scanner scanner = new Scanner(System.in);
+        boolean isBad = true;
+        System.out.println("Veuillez entrer une position:");
+        do {
+            String[] position = scanner.nextLine().split(",");
+
+            isBad = checkJetonPosiotion(Integer.parseInt(position[0]), Integer.parseInt(position[1]));
+            if (!isBad)
+                isBad = false;
+            else {
+                System.out.println("Veuillez entrer une position correcte !");
+            }
+
+        } while (isBad);
+
+
+
+
+
+
+
+
         /*************************
          * à écrire le code :
          *  -> verifier le msg de scanner
