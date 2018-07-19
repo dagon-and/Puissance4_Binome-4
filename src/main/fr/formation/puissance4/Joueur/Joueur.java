@@ -44,6 +44,7 @@ public abstract class Joueur {
         return false;
     }
 
+    Color adversaireColor = board.getJetons()[ligne][colonne].getColor();
     public void setJetonAdversaire(int ligne, int colonne, Color adversaireColor) {
         if (checkJetonPosiotion(ligne, colonne)) {
             board.getJetons()[ligne][colonne].setColor(adversaireColor);
@@ -53,7 +54,6 @@ public abstract class Joueur {
     }
 
     public boolean checkDefaite(int ligne, int colonne) {
-        Color adversaireColor = board.getJetons()[ligne][colonne].getColor();
         int count;
 
         // vérification des couleur sur la verticale
@@ -78,7 +78,7 @@ public abstract class Joueur {
             if (++count > 2)
                 return isDefaite = true;
 
-        // vérification des couleur sur deux diagonales
+        // vérification des couleur   deux diagonales
 
         // - diagonale avec la pente positive à droite et à gauche
         count = 0;
