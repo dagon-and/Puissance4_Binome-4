@@ -12,6 +12,7 @@ public class JoueurHumain extends Joueur {
         super(color, board);
     }
 
+    @Override
     public String entrerPosition() {
         Scanner scanner = new Scanner(System.in);
         String inPosition;
@@ -31,40 +32,5 @@ public class JoueurHumain extends Joueur {
         } while (i < NB_ESSAIS);
 
         return "Fin";
-    }
-
-    @Override
-    public String envoyer() {
-        // Messages :
-        // - "Fin" termine le jeu
-        // - "{ligne},{colonne},{color}" envoie le choix à adversaire, ex., "4,4,RED" ou "1,4,YELLOW"
-
-        if (isFinish()) {
-            return "Fin";
-        }
-        return entrerPosition();
-    }
-
-    @Override
-    public void recevoir(String messageRecu) {
-        strMsg = messageRecu;
-
-        if (!messageRecu.matches("^\\d+,\\d+,(RED|YELLOW)$")) {
-            isMsgError = true;
-            return;
-        }
-
-        String[] strings = messageRecu.split(",");
-        int ligne = Integer.parseInt(strings[0]);
-        int colonne = Integer.parseInt(strings[1]);
-        Color adversaireColor = Color.valueOf(strings[2]);
-
-        if (adversaireColor.equals(color)) {
-            isMsgError = true;
-            return;
-        }
-
-        setJetonAdversaire(ligne, colonne, adversaireColor);
-        checkDefaite(ligne, colonne);
     }
 }

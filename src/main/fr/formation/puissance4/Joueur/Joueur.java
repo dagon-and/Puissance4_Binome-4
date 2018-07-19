@@ -123,7 +123,38 @@ public abstract class Joueur {
         return false;
     }
 
-    public abstract String envoyer();
+    public abstract String entrerPosition();
 
-    public abstract void recevoir(String messageRecu);
+    public String envoyer() {
+        // Messages :
+        // - "Fin" termine le jeu
+        // - "{ligne},{colonne},{color}" envoie le choix à adversaire, ex., "4,4,RED" ou "1,4,YELLOW"
+
+        if (isFinish()) {
+            return "Fin";
+        }
+        return entrerPosition();
+    }
+
+    public void recevoir(String messageRecu) {
+        strMsg = messageRecu;
+
+        if (!messageRecu.matches("^\\d+,\\d+,(RED|YELLOW)$")) {
+            isMsgError = true;
+            return;
+        }
+
+        String[] strings = messageRecu.split(",");
+        int ligne = Integer.parseInt(strings[0]);
+        int colonne = Integer.parseInt(strings[1]);
+        Color adversaireColor = Color.valueOf(strings[2]);
+
+        if (adversaireColor.equals(color)) {
+            isMsgError = true;
+            return;
+        }
+
+        setJetonAdversaire(ligne, colonne, adversaireColor);
+        checkDefaite(ligne, colonne);
+    }
 }

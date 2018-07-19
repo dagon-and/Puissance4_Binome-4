@@ -1,6 +1,6 @@
 package fr.formation.puissance4;
 
-import fr.formation.puissance4.Joueur.JoueurHumain;
+import fr.formation.puissance4.Joueur.*;
 import fr.formation.puissance4.Socket.Client;
 import fr.formation.puissance4.Socket.Serveur;
 import fr.formation.puissance4.Board.Board;
@@ -13,6 +13,7 @@ import java.util.Scanner;
 
 public class Game extends Thread {
     private Jeton[][] jetons;
+    Scanner scanner = new Scanner(System.in);
 
     public Game(List<Circle> circles) {
         this.jetons = new Jeton[6][7];
@@ -25,14 +26,26 @@ public class Game extends Thread {
         }
     }
 
+    public Joueur chooseJoueur(Color color) {
+        System.out.println("Etes vous humain, AI Random ou AI Algo ?");
+        System.out.println("1 - Humain | 2 - AI Random | 3 - AI Algo");
+        switch (scanner.nextInt()) {
+            case 2:
+                return new JoueurAIRandom(color, new Board(jetons));
+            case 3:
+                return new JoueurAIAlgo(color, new Board(jetons));
+            default:
+                return new JoueurHumain(color, new Board(jetons));
+        }
+    }
+
     @Override
     public void run() {
         System.out.println("Etes vous serveur ou client ?");
-        System.out.println("1 - Client   2 - Serveur");
-        Scanner scanner = new Scanner(System.in);
+        System.out.println("1 - Client | 2 - Serveur");
         if (scanner.nextInt() == 1)
-            new Client(new JoueurHumain(Color.YELLOW, new Board(jetons))).start();
+            new Client(chooseJoueur(Color.YELLOW)).start();
         else
-            new Serveur(new JoueurHumain(Color.RED, new Board(jetons))).start();
+            new Serveur(chooseJoueur(Color.RED)).start();
     }
 }
