@@ -19,12 +19,12 @@ public class JoueurAIRandom extends Joueur {
         int colonne = random.nextInt(7);
         int ligne = -1;
         while (!checkJetonPosiotion(++ligne, colonne)) ;
-        String robotPosition;
         if (setJeton(ligne, colonne)) {
-
+            String robotPosition;
+            return ligne+","+colonne+","+((color.equals(Color.RED))? "RED": "YELLOW");
         }
 
-        return robotPosition;
+        return "Fin";
 
     }
 }
