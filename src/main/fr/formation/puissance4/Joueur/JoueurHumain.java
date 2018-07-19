@@ -15,17 +15,18 @@ public class JoueurHumain extends Joueur {
     @Override
     public String entrerPosition() {
         Scanner scanner = new Scanner(System.in);
-        String inPosition;
+        String position;
         int i = 0;
-        System.out.println("Veuillez entrer une position (ex., 'ligne,colonne') :");
+        System.out.println("Veuillez entrer une colonne (1-7) :");
         do {
-            inPosition = scanner.nextLine();
-            if (inPosition.matches("^\\d+,\\d+$")) {
-                String[] position = inPosition.split(",");
-                int ligne=Integer.parseInt(position[0]);
-                int colonne=Integer.parseInt(position[1]);
+            position = scanner.nextLine();
+            if (position.matches("^\\d+$")) {
+                int ligne=-1;
+                int colonne=Integer.parseInt(position)-1;
+                while (!checkJetonPosiotion(++ligne, colonne)) ;
                 if (setJeton(ligne,colonne)){
-                    return inPosition + "," + ((color.equals(Color.RED))? "RED": "YELLOW");
+
+                    return ligne+","+colonne+","+((color.equals(Color.RED))? "RED": "YELLOW");
                 }
             }
             System.out.println("(" + (++i) + ") Veuillez choisir une position correcte :");

@@ -20,7 +20,6 @@ public class JoueurAIRandom extends Joueur {
         int ligne = -1;
         while (!checkJetonPosiotion(++ligne, colonne)) ;
         if (setJeton(ligne, colonne)) {
-            String robotPosition;
             return ligne+","+colonne+","+((color.equals(Color.RED))? "RED": "YELLOW");
         }
 
