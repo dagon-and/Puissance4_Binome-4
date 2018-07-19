@@ -6,7 +6,7 @@ import javafx.scene.paint.Color;
 import java.util.Scanner;
 
 public class JoueurHumain extends Joueur {
-    private final int NB_ESSAIS = 3;
+    private final int NB_ESSAIS = 10;
 
     public JoueurHumain(Color color, Board board) {
         super(color, board);
@@ -47,6 +47,8 @@ public class JoueurHumain extends Joueur {
 
     @Override
     public void recevoir(String messageRecu) {
+        strMsg = messageRecu;
+
         if (!messageRecu.matches("^\\d+,\\d+,(RED|YELLOW)$")) {
             isMsgError = true;
             return;

@@ -7,12 +7,14 @@ public abstract class Joueur {
     protected Color color;
     protected Board board;
     protected boolean isMsgError;
+    protected String strMsg;
     protected boolean isDefaite;
 
     public Joueur(Color color, Board board) {
         this.color = color;
         this.board = board;
         this.isMsgError = false;
+        this.strMsg = "";
         this.isDefaite = false;
     }
 
@@ -108,7 +110,14 @@ public abstract class Joueur {
         // - s'il une erreur dans le message reçu
         // - si l'adversaire a gagné
         // - si le board est complètement rempli
-        if (isMsgError || isDefaite || board.isFullBoard()) {
+        if (isMsgError) {
+            System.out.println("Erreur dans le message reçu > " + strMsg);
+            return true;
+        } else if (isDefaite) {
+            System.out.println("Vous avez perdu");
+            return true;
+        } else if (board.isFullBoard()) {
+            System.out.println("Table de jeu est remplie");
             return true;
         }
         return false;
